@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eat Fit | Personalized Nutrition & Smart Food Ordering</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <nav class="nav wrapper">
+        <h1 class="brand">🥗 Eat Fit</h1>
+        <div class="nav-actions">
+          <button id="themeToggle" class="ghost" aria-label="Toggle theme">🌙</button>
+          <button id="resetAll" class="ghost" aria-label="Reset app">Reset</button>
+        </div>
+      </nav>
+
+      <section class="hero-content wrapper">
+        <h2>Personalized Nutrition + One-Tap Healthy Ordering</h2>
+        <p>
+          Build your nutrition profile, get macro targets and smart meal recommendations,
+          then order meals with live calorie and budget tracking.
+        </p>
+        <div class="hero-stats" id="heroStats">
+          <div class="stat"><span id="statMeals">8</span><small>Healthy Meals</small></div>
+          <div class="stat"><span id="statUsers">1.2k</span><small>Active Users</small></div>
+          <div class="stat"><span id="statSaved">$4.8k</span><small>Calories Balanced</small></div>
+        </div>
+      </section>
+    </header>
+
+    <main class="wrapper layout">
+      <section class="card">
+        <h3>1) Create Your Profile</h3>
+        <form id="profileForm" class="grid-form">
+          <label>
+            Name
+            <input type="text" id="name" placeholder="Alex" required />
+          </label>
+
+          <label>
+            Age
+            <input type="number" id="age" min="12" max="99" required />
+          </label>
+
+          <label>
+            Weight (kg)
+            <input type="number" id="weight" min="30" max="250" step="0.1" required />
+          </label>
+
+          <label>
+            Height (cm)
+            <input type="number" id="height" min="120" max="230" required />
+          </label>
+
+          <label>
+            Goal
+            <select id="goal" required>
+              <option value="">Select goal</option>
+              <option value="weight-loss">Weight Loss</option>
+              <option value="muscle-gain">Muscle Gain</option>
+              <option value="maintenance">Maintenance</option>
+            </select>
+          </label>
+
+          <label>
+            Activity Level
+            <select id="activity" required>
+              <option value="">Select activity</option>
+              <option value="low">Low</option>
+              <option value="moderate">Moderate</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+
+          <label>
+            Daily Budget ($)
+            <input type="number" id="budget" min="5" max="200" step="0.5" required />
+          </label>
+
+          <button type="submit" class="primary">Generate Smart Plan</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h3>2) Personalized Insights</h3>
+        <div id="insights" class="insights muted">Complete your profile to unlock your nutrition dashboard.</div>
+      </section>
+
+      <section class="card">
+        <div class="toolbar">
+          <h3>3) Explore & Order Meals</h3>
+          <div class="toolbar-controls">
+            <select id="filterType" aria-label="Filter meals by type">
+              <option value="all">All Types</option>
+              <option value="veg">Veg</option>
+              <option value="non-veg">Non-Veg</option>
+              <option value="drink">Drink</option>
+            </select>
+            <input type="search" id="searchMeal" placeholder="Search meals..." aria-label="Search meals" />
+            <button id="sortPrice" class="ghost">Sort: Price ↑</button>
+          </div>
+        </div>
+
+        <div id="menu" class="menu-grid"></div>
+
+        <aside class="cart card-sub">
+          <div class="cart-header">
+            <h4>Your Cart</h4>
+            <button id="clearCart" class="danger">Clear</button>
+          </div>
+          <ul id="cartItems"></ul>
+          <div class="cart-summary">
+            <p><strong>Items:</strong> <span id="totalItems">0</span></p>
+            <p><strong>Calories:</strong> <span id="totalCalories">0</span> kcal</p>
+            <p><strong>Total:</strong> $<span id="totalPrice">0.00</span></p>
+          </div>
+          <button id="checkout" class="primary">Checkout</button>
+          <p id="orderMessage" class="success" aria-live="polite"></p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="wrapper">
+      <p>Eat Fit © 2026 • Fuel your body, simplify healthy eating.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
